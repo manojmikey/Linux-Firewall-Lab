@@ -1,1 +1,57 @@
 
+# Sample iptables Dropped Packet Logs
+# Generated from: sudo tail -f /var/log/syslog | grep "IPT-"
+# Lab environment: Ubuntu 22.04 (server) + Kali Linux (attacker)
+# Date: Lab session — replace with your actual date
+
+# =============================================================================
+# PORT SCAN DETECTION
+# =============================================================================
+May 10 14:23:01 ubuntu kernel: [1234.567890] IPT-PORTSCAN: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=44 TOS=0x00 PREC=0x00 TTL=64 ID=54321 DF PROTO=TCP SPT=54231 DPT=139 WINDOW=1024 RES=0x00 SYN URGP=0
+May 10 14:23:01 ubuntu kernel: [1234.568012] IPT-PORTSCAN: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=44 TOS=0x00 PREC=0x00 TTL=64 ID=54322 DF PROTO=TCP SPT=54232 DPT=445 WINDOW=1024 RES=0x00 SYN URGP=0
+May 10 14:23:01 ubuntu kernel: [1234.568234] IPT-PORTSCAN: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=44 TOS=0x00 PREC=0x00 TTL=64 ID=54323 DF PROTO=TCP SPT=54233 DPT=3389 WINDOW=1024 RES=0x00 SYN URGP=0
+
+# =============================================================================
+# SSH BRUTE FORCE ATTEMPTS
+# =============================================================================
+May 10 14:45:12 ubuntu kernel: [2345.123456] IPT-SSH-BRUTE: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=12345 DF PROTO=TCP SPT=43210 DPT=22 WINDOW=64240 RES=0x00 SYN URGP=0
+May 10 14:45:13 ubuntu kernel: [2346.234567] IPT-SSH-BRUTE: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=12346 DF PROTO=TCP SPT=43211 DPT=22 WINDOW=64240 RES=0x00 SYN URGP=0
+May 10 14:45:13 ubuntu kernel: [2346.345678] IPT-SSH-BRUTE: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=12347 DF PROTO=TCP SPT=43212 DPT=22 WINDOW=64240 RES=0x00 SYN URGP=0
+
+# =============================================================================
+# SYN FLOOD DETECTION
+# =============================================================================
+May 10 15:01:44 ubuntu kernel: [3456.456789] IPT-SYNFLOOD: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=40 TOS=0x00 PREC=0x00 TTL=64 ID=0 PROTO=TCP SPT=12345 DPT=80 WINDOW=512 RES=0x00 SYN URGP=0
+May 10 15:01:44 ubuntu kernel: [3456.457890] IPT-SYNFLOOD: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=40 TOS=0x00 PREC=0x00 TTL=64 ID=1 PROTO=TCP SPT=12346 DPT=80 WINDOW=512 RES=0x00 SYN URGP=0
+
+# =============================================================================
+# IP BLACKLIST
+# =============================================================================
+May 10 15:02:44 ubuntu kernel: [4567.567890] IPT-BLACKLIST: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=23456 DF PROTO=TCP SPT=55123 DPT=22 WINDOW=64240 RES=0x00 SYN URGP=0
+May 10 15:02:45 ubuntu kernel: [4568.678901] IPT-BLACKLIST: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=34567 PROTO=ICMP TYPE=8 CODE=0 ID=1234 SEQ=1
+
+# =============================================================================
+# XMAS SCAN DETECTION
+# =============================================================================
+May 10 15:20:11 ubuntu kernel: [5678.789012] IPT-XMAS-SCAN: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=40 TOS=0x00 PREC=0x00 TTL=51 ID=0 PROTO=TCP SPT=33445 DPT=22 WINDOW=1024 RES=0x00 URG PSH FIN URGP=0
+May 10 15:20:11 ubuntu kernel: [5678.890123] IPT-NULL-SCAN: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=40 TOS=0x00 PREC=0x00 TTL=51 ID=1 PROTO=TCP SPT=33446 DPT=80 WINDOW=1024 RES=0x00 URGP=0
+
+# =============================================================================
+# GENERAL CATCH-ALL DROPS
+# =============================================================================
+May 10 15:30:00 ubuntu kernel: [6789.901234] IPT-DROP: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=44 TOS=0x00 PREC=0x00 TTL=64 ID=65432 DF PROTO=TCP SPT=54321 DPT=3306 WINDOW=1024 RES=0x00 SYN URGP=0
+May 10 15:30:01 ubuntu kernel: [6790.012345] IPT-DROP: IN=enp0s8 OUT= MAC=08:00:27:ab:cd:ef:08:00:27:12:34:56:08:00 SRC=192.168.56.101 DST=192.168.56.100 LEN=44 TOS=0x00 PREC=0x00 TTL=64 ID=65433 DF PROTO=TCP SPT=54322 DPT=8080 WINDOW=1024 RES=0x00 SYN URGP=0
+
+# =============================================================================
+# HOW TO READ THESE LOGS:
+#
+# SRC=      → Source IP (attacker)
+# DST=      → Destination IP (your server)
+# PROTO=    → Protocol (TCP, UDP, ICMP)
+# SPT=      → Source port (attacker's port)
+# DPT=      → Destination port (what they're hitting on your server)
+# SYN       → SYN flag set (new connection attempt)
+# URG PSH FIN → XMAS scan flags
+# (no flags) → NULL scan
+# IPT-*:    → Which rule caught this packet
+# =============================================================================
