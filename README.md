@@ -1,13 +1,13 @@
 # Linux-Firewall-Lab
 Linux firewall security lab with UFW &amp; iptables defending against real-world attacks from Kali Linux.
 
-# 🔥 Linux Firewall Security Lab
+#  Linux Firewall Security Lab
 
 > **A hands-on network security lab simulating real-world attack scenarios and defending against them using UFW and iptables on Ubuntu — tested with a live Kali Linux attacker machine.**
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 This project demonstrates practical firewall configuration and network traffic filtering using two virtual machines:
 
@@ -20,7 +20,7 @@ Both VMs are connected on a **Host-Only network** to simulate a real isolated ne
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 - Configure a layered firewall using **UFW** (beginner layer) and **iptables** (advanced layer)
 - Filter TCP/IP traffic by port, protocol, IP address, and connection state
@@ -30,7 +30,7 @@ Both VMs are connected on a **Host-Only network** to simulate a real isolated ne
 
 ---
 
-## 🛠️ Tools & Technologies
+##  Tools & Technologies
 
 | Tool | Purpose |
 |---|---|
@@ -45,7 +45,7 @@ Both VMs are connected on a **Host-Only network** to simulate a real isolated ne
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```
 linux-firewall-lab/
@@ -75,7 +75,7 @@ linux-firewall-lab/
 
 ---
 
-## ⚙️ Lab Setup
+##  Lab Setup
 
 ### Network Topology
 
@@ -120,7 +120,7 @@ hping3 --version
 
 ---
 
-## 🚀 Quick Start — Run the Full Firewall
+##  Quick Start — Run the Full Firewall
 
 ```bash
 # Clone this repo on your Ubuntu VM
@@ -137,7 +137,7 @@ sudo iptables -L -v -n --line-numbers
 
 ---
 
-## 🔴 Attack Scenarios Tested
+##  Attack Scenarios Tested
 
 | # | Attack | Tool Used | Rule Applied | Result |
 |---|--------|-----------|--------------|--------|
@@ -152,7 +152,7 @@ sudo iptables -L -v -n --line-numbers
 
 ---
 
-## 📊 What I Learned
+##  What I Learned
 
 - How Linux processes packets through **INPUT, OUTPUT, FORWARD chains**
 - Difference between **stateful** (`conntrack`) and **stateless** packet filtering
@@ -163,7 +163,7 @@ sudo iptables -L -v -n --line-numbers
 
 ---
 
-## 📜 License
+##  License
 
 MIT License — free to use for learning and portfolio purposes.
 
